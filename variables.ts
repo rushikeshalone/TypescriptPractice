@@ -10,3 +10,13 @@ let UserId: number = 5264;
 // boolaen declaration
 
 let isActive: boolean = true;
+
+// any
+
+let hero: string;
+
+function gettingHero() {
+  return "Superman";
+}
+
+hero = gettingHero(); // Superman
