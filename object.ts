@@ -43,4 +43,18 @@ let myUserReadonly: User1 = {
   isActive: true,
 };
 
+type CreditCardNumber = {
+  readonly cardNumber: string;
+  cardHolderName: string;
+  cardExpiryDate: string;
+  cardCVV: string;
+};
+
+// add able type create new card
+
+type NewCardDetails = CreditCardNumber & {
+  cardType: string;
+  cardLimit: number;
+};
+
 export {};
