@@ -95,3 +95,54 @@ function getFood(animal: Animal) {
     animal.bark();
   }
 }
+
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+interface Rectangle {
+  kind: "rectangle";
+  width: number;
+  height: number;
+}
+interface Triangle {
+  kind: "triangle";
+  base: number;
+  height: number;
+}
+type Shape = Circle | Square | Rectangle | Triangle;
+
+function getArea(shape: Shape): number {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    case "rectangle":
+      return shape.width * shape.height;
+    case "triangle":
+      return (shape.base * shape.height) / 2;
+    default:
+      const _exhaustiveCheck: never = shape; // This will cause a compile-time error if a new shape is added without updating the switch statement
+      return _exhaustiveCheck;
+  }
+}
+function getArea2(shape: Shape): number {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+  } else if (shape.kind === "square") {
+    return shape.sideLength ** 2;
+  } else if (shape.kind === "rectangle") {
+    return shape.width * shape.height;
+  } else if (shape.kind === "triangle") {
+    return (shape.base * shape.height) / 2;
+  } else {
+    const _exhaustiveCheck: never = shape; // This will cause a compile-time error if a new shape is added without updating the if-else statements
+    return _exhaustiveCheck;
+  }
+}

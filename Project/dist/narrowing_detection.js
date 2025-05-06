@@ -75,3 +75,36 @@ function getFood(animal) {
         animal.bark();
     }
 }
+function getArea(shape) {
+    switch (shape.kind) {
+        case "circle":
+            return Math.PI * shape.radius ** 2;
+        case "square":
+            return shape.sideLength ** 2;
+        case "rectangle":
+            return shape.width * shape.height;
+        case "triangle":
+            return (shape.base * shape.height) / 2;
+        default:
+            const _exhaustiveCheck = shape; // This will cause a compile-time error if a new shape is added without updating the switch statement
+            return _exhaustiveCheck;
+    }
+}
+function getArea2(shape) {
+    if (shape.kind === "circle") {
+        return Math.PI * shape.radius ** 2;
+    }
+    else if (shape.kind === "square") {
+        return shape.sideLength ** 2;
+    }
+    else if (shape.kind === "rectangle") {
+        return shape.width * shape.height;
+    }
+    else if (shape.kind === "triangle") {
+        return (shape.base * shape.height) / 2;
+    }
+    else {
+        const _exhaustiveCheck = shape; // This will cause a compile-time error if a new shape is added without updating the if-else statements
+        return _exhaustiveCheck;
+    }
+}
